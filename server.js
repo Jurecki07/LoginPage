@@ -4,7 +4,7 @@ const session = require("express-session");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
 const path = require("path");
-// const sessionConfig = require("./sessionConfig");
+const sessionConfig = require("./sessionConfig");
 // const users = require("./data");
 // const checkAuth = require("./middlewares/checkAuth");
 // const indexRoutes = require("./routes/indexRoutes");
@@ -13,6 +13,16 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 8000;
 
+// Template 
+app.engine("mustache",mustacheExpress());
+app.set("views", "/.views");
+app.set("view engine", "mustache");
+
+//MiddleWare
+app.use(express.static(path.join(__dirname, "./public")));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session(sessionConfig));
+app.use(logger("dev"));
 
 
 
