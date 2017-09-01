@@ -1,5 +1,5 @@
 module.exports = {
-    secret: "bubble street vetrinarian converse",
+    secret: "dam sham bang mad dan silicon enachments",
     resave: true,
     saveUninitialized: true,
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
